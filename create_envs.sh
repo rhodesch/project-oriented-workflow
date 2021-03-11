@@ -62,7 +62,7 @@ else
 			mkdir -p $tmp_dir
 		else
 			echo "using $HOME as temp dir."
-			tmp_dir=/scratch/$USER/temp
+			tmp_dir=$HOME/temp
 			mkdir -p $tmp_dir
 		fi
 
@@ -74,7 +74,6 @@ else
 		conda config --add channels bioconda
 		conda config --add channels conda-forge
 		conda config --set channel_priority strict
-		# prevent auto-activate of base upon new shell
 		conda config --set auto_activate_base false
 		conda install --name=base -c conda-forge mamba
 		conda deactivate
