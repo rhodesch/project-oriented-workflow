@@ -33,3 +33,13 @@ Compute intensive interactive jobs are not allowed on the Biowulf head node.\n"
 echo -e "Starting R/Rstudio.\n"
 
 rstudio --conda
+
+
+# Move to github README.md
+# Basic startup steps (if not using this startup script):
+# CMD: cd /path/to/project/folder/
+# CMD: sinteractive --cpus-per-task=4 --mem=4g --time=8:00:00
+# CMD: source /data/$USER/conda/etc/profile.d/conda.sh #if needed
+# CMD: conda activate <environment>
+# CMD: module load Rstudio/1.4.1103
+# CMD: rstudio --conda
