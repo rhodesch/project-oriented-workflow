@@ -102,7 +102,7 @@ else
 		conda config --add channels conda-forge
 		conda config --set channel_priority strict
 		conda config --set auto_activate_base false
-		conda install --name=base -c conda-forge mamba
+		conda install --yes --name=base -c conda-forge mamba
 		conda deactivate
 	else
 		echo -e "Skipping miniconda installation.\n"
@@ -134,7 +134,6 @@ then
 	# echo -e "Creating environment containing R at './env-r'\n"
 	# conda create --yes -p env-r
 	# conda activate ./env-r
-
 	# echo -e "Installing r-base and r-essentials to activate env\n"
 	# conda install --yes -c conda-forge r-base r-essentials
 	# # mamba install --yes -c conda-forge -c bioconda snakemake
