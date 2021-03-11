@@ -86,6 +86,8 @@ then
 
 	ln -s setup/setup_R.sh .
 	ln -s setup/start_Rstudio.sh .
+	
+	Rscript --vanilla setup_irkernal.R
 else
 	echo "R is not installed in the active conda env."
 	echo "Please install conda to the activate env and re-run this setup script."
