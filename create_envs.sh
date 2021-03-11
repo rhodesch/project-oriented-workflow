@@ -92,27 +92,29 @@ then
 	
 	# create conda env for general use
 	echo -e "Creating general use conda environment at './env'\n"
+	conda activate base
 	conda create --yes -p env
 	conda activate ./env
 
 	echo -e "Installing Jupyter lab/notebook, scipy core and scikit-learn into active env\n"
 	conda install --yes -c conda-forge scikit-learn jupyterlab numpy scipy matplotlib ipython pandas sympy nose
 	mamba install --yes -c conda-forge -c bioconda snakemake
+	conda install --yes -c conda-forge r-base r-essentials
 	conda env export --no-builds > env.yml
 	conda deactivate
 
-	# create conda env for R/Rstudio
-	echo -e "Creating environment containing R at './env-r'\n"
-	conda create --yes -p env-r
-	conda activate ./env-r
+	# # create conda env for R/Rstudio
+	# echo -e "Creating environment containing R at './env-r'\n"
+	# conda create --yes -p env-r
+	# conda activate ./env-r
 
-	echo -e "Installing r-base and r-essentials to activate env\n"
-	conda install --yes -c conda-forge r-base r-essentials
-	# mamba install --yes -c conda-forge -c bioconda snakemake
-	conda env export --no-builds > env-r.yml
-	conda deactivate
+	# echo -e "Installing r-base and r-essentials to activate env\n"
+	# conda install --yes -c conda-forge r-base r-essentials
+	# # mamba install --yes -c conda-forge -c bioconda snakemake
+	# conda env export --no-builds > env-r.yml
+	# conda deactivate
 else
-	echo -e "Skipping creation of conda environments.\n"
+	echo -e "Skipping creation of conda environment.\n"
 fi
 
 if [[ "$response" =~ ^[Yy]$ ]]
@@ -120,7 +122,7 @@ then
 	echo -e "Conda will add initialization entry to your shell config file."
 	echo -e "Cofirm by trying 'cat ~/.bashrc' or 'cat ~/.bashprofile' and go to end of file.\n"
 	echo -e "After restarting, shell activate conda environment by typing:."
-	echo -e "Conda activate (for base environment)"
+	# echo -e "Conda activate (for base environment)"
 	echo -e "Conda activate <env_name> (for user create env)\n"
 
 	conda init
