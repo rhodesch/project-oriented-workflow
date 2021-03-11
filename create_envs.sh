@@ -23,14 +23,10 @@ else
 			dir_default="/data/$USER"
 			read -p "Enter directory to install in [$dir_default]: " dir_use
 			dir_use=${dir_use:-$dir_use}
-			echo "Installing miniconda to:"
-			echo $dir_use
 		else
 			dir_default="$HOME"
 			read -p "Enter directory to install in [$dir_default]: " dir_use
 			dir_use=${dir_use:-$dir_use}
-			echo "Installing miniconda to:"
-			echo $dir_use
 		fi
 
 		echo "Installing miniconda to:"
