@@ -77,8 +77,11 @@ else
 		
 		if [[ ${machine} == "Linux" ]]
 		then
+			echo "Installing for Linux."
 			download https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 		elif [[ ${machine} == "Mac" ]]
+		then
+			echo "Installing for Mac."
 			download https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 		else
 			echo "Only Linux or Mac supported currently."
