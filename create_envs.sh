@@ -32,6 +32,27 @@ else
 		echo "Installing miniconda to:"
 		echo $dir_use
 		cd $dir_use
+
+		if [[ -d /scratch ]]
+		then
+			echo "using /scratch as temp dir."
+			tmp_dir=/scratch/$USER/temp
+			mkdir -p $tmp_dir
+		else
+			echo "using $HOME as temp dir."
+			tmp_dir=$HOME/temp
+			mkdir -p $tmp_dir
+		fi
+		
+		unameOut="$(uname -s)"
+		case "${unameOut}" in
+    		Linux*)     machine=Linux;;
+    		Darwin*)    machine=Mac;;
+    		CYGWIN*)    machine=Cygwin;;
+    		MINGW*)     machine=MinGw;;
+    		*)          machine="UNKNOWN:${unameOut}"
+		esac
+		echo ${machine}
 		
 		function download {
 		url=$1
@@ -53,19 +74,16 @@ else
 			exit
 		fi
 		}
-		download https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-
-		if [[ -d /scratch ]]
+		
+		if [[ ${machine} == "Linux" ]]
 		then
-			echo "using /scratch as temp dir."
-			tmp_dir=/scratch/$USER/temp
-			mkdir -p $tmp_dir
+			download https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+		elif [[ ${machine} == "Mac" ]]
+			download https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 		else
-			echo "using $HOME as temp dir."
-			tmp_dir=$HOME/temp
-			mkdir -p $tmp_dir
+			echo "Only Linux or Mac supported currently."
 		fi
-
+		
 		TMPDIR=$tmp_dir bash Miniconda3-latest-Linux-x86_64.sh -p $dir_use/conda -b
 		rm Miniconda3-latest-Linux-x86_64.sh
 		source $dir_use/conda/etc/profile.d/conda.sh
