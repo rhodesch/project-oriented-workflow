@@ -87,17 +87,17 @@ else
 			echo "Only Linux or Mac supported currently."
 		fi
 		
-		# TMPDIR=$tmp_dir bash Miniconda3-latest-Linux-x86_64.sh -p $dir_use/conda -b
-		# rm Miniconda3-latest-Linux-x86_64.sh
-		# source $dir_use/conda/etc/profile.d/conda.sh
-		# conda activate base
-		# conda clean --all
-		# conda config --add channels bioconda
-		# conda config --add channels conda-forge
-		# conda config --set channel_priority strict
-		# conda config --set auto_activate_base false
-		# conda install --name=base -c conda-forge mamba
-		# conda deactivate
+		TMPDIR=$tmp_dir bash Miniconda3-latest-Linux-x86_64.sh -p $dir_use/conda -b
+		rm Miniconda3-latest-Linux-x86_64.sh
+		source $dir_use/conda/etc/profile.d/conda.sh
+		conda activate base
+		conda clean --all
+		conda config --add channels bioconda
+		conda config --add channels conda-forge
+		conda config --set channel_priority strict
+		conda config --set auto_activate_base false
+		conda install --name=base -c conda-forge mamba
+		conda deactivate
 	else
 		echo -e "Skipping miniconda installation.\n"
 	fi
