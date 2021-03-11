@@ -11,8 +11,8 @@ Currently only supports unix based systems.
 Instructions:
 Clone this repo into your main project directory.
 Run "activate.sh" script to create conda environments"
-source ./conda-r-python-snakemake
+  source ./conda-r-python-snakemake
 
 Next run R setup up script:
-source setup_r.sh
+  source setup_r.sh
 
