@@ -16,9 +16,9 @@ Run "create_envs.sh" script to create conda environments (and install conda, if 
 source ./conda-r-python-snakemake/create_envs.sh
 ```
 
-Next run R setup up script (a symlink created in the current directory):
+Next run R setup up script (a symlink is created in the current directory):
 ```
-source setup_r.sh
+source setup_R.sh
 ```
 
 Important:
@@ -26,6 +26,9 @@ Do not mix conda proprietary channels (anaconda, r) with open-source channels (c
 
 Currently, Rstudio is not available on open-source channels. Consequently, if you want to use Rstudio with R in the installed Conda environment there are a few options:
 - On a personal machine, use a locally installed Rstudio Desktop.
-- On a cloud platform, use Rstudio Server as described here [gce-startup](https://github.com/ctrhodes/gce-startup)
-- On a cluster with environment modules such as LMOD, load a compatible Rstudio module for interactive or batch use.
--  
+- On a cloud platform, use Rstudio Server, described here: [gce-startup](https://github.com/ctrhodes/gce-startup)
+- On a cluster with environment modules such as LMOD, use the included Rstudio startup script:
+ 
+```
+source start_Rstudio.sh
+```
