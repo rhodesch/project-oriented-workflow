@@ -1,4 +1,4 @@
-# conda-r-py-snakemake
+# Install R, Python and Snakemake in Conda environments
 Reproducible analysis with R, Python and Snakemake via Conda
 
 This repository contains setup scripts to automate the installation of R, Python and Snakemake and other software used for bioinformatic and data science projects in conda environments. Setup will install 1) r-base and r-essentials, 2) python, JupyterLab and core SciPy packages and 3) Snakemake workflow management system allowing interactive or batch analysis on local, cluster and cloud platforms.
@@ -7,14 +7,16 @@ Setup will also several files to streamline setup of R within a conda env includ
 
 Currently only supports unix based systems.
 
-
 Instructions:
 Clone this repo into your main project directory.
-Run "activate.sh" script to create conda environments"
+
+Run "create_envs.sh" script to create conda environments (and install conda, if needed)"
+
 ```
-    source ./conda-r-python-snakemake
+source ./conda-r-python-snakemake/create_envs.sh
 ```
 
-Next run R setup up script:
-  source setup_r.sh
-
+Next run R setup up script (a symlink created in the current directory):
+```
+source setup_r.sh
+```
