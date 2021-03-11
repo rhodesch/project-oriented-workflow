@@ -146,7 +146,7 @@ fi
 if [[ "$response" =~ ^[Yy]$ ]]
 then
 	echo -e "Conda will add initialization entry to your shell config file."
-	echo -e "Cofirm by trying 'cat ~/.bashrc' or 'cat ~/.bashprofile' and go to end of file.\n"
+	echo -e "Cofirm by trying 'cat ~/.bashrc' or 'cat ~/.bash_profile' and go to end of file.\n"
 	echo -e "After restarting, shell activate conda environment by typing:"
 	# echo -e "Conda activate (for base environment)"
 	echo -e "Conda activate <env_name> (for user create env)\n"
