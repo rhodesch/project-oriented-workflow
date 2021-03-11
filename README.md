@@ -28,7 +28,7 @@ Currently, Rstudio is not available on open-source channels. Consequently, if yo
 - On a personal machine, use a locally installed Rstudio Desktop.
 - On a cloud platform, use Rstudio Server, described here: [gce-startup](https://github.com/ctrhodes/gce-startup)
 - On a cluster with environment modules such as LMOD, use the included Rstudio startup script:
- 
+
 ```
 source start_Rstudio.sh
 ```
