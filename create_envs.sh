@@ -33,7 +33,7 @@ else
 		if [[ ${machine} == "Mac" ]]
 		then
 			# MacOS likely does not support '-i' option for read
-			$dir_use="$HOME"
+			dir_use="$HOME"
 		elif [[ -d "/data/$USER" ]]
 		then
 			name="/data/$USER"
@@ -47,63 +47,63 @@ else
 
 		echo "Installing miniconda to:"
 		echo $dir_use
-		# cd $dir_use
+		cd $dir_use
 
-		# if [[ -d /scratch ]]
-		# then
-		# 	echo "using /scratch as temp dir."
-		# 	tmp_dir=/scratch/$USER/temp
-		# 	mkdir -p $tmp_dir
-		# else
-		# 	echo "using $HOME as temp dir."
-		# 	tmp_dir=$HOME/temp
-		# 	mkdir -p $tmp_dir
-		# fi
+		if [[ -d /scratch ]]
+		then
+			echo "using /scratch/temp as temp dir."
+			tmp_dir=/scratch/$USER/temp
+			mkdir -p $tmp_dir
+		else
+			echo "using $HOME/temp as temp dir."
+			tmp_dir=$HOME/temp
+			mkdir -p $tmp_dir
+		fi
 		
-		# function download {
-		# url=$1
-		# filename=$(basename "$url")
+		function download {
+		url=$1
+		filename=$(basename "$url")
 
-		# echo $url
-		# echo $filename
+		echo $url
+		echo $filename
 
-		# if [[ -x "$(which wget)" ]]
-		# then
-		# 	wget -O $filename $url
-		# 	echo ""
-		# elif [[ -x "$(which curl)" ]]
-		# then
-		# 	curl -o $filename $url
-		# 	echo ""
-		# else
-		# 	echo "Could not find curl or wget, please install either.\n"
-		# 	exit
-		# fi
-		# }
+		if [[ -x "$(which wget)" ]]
+		then
+			wget -O $filename $url
+			echo ""
+		elif [[ -x "$(which curl)" ]]
+		then
+			curl -o $filename $url
+			echo ""
+		else
+			echo "Could not find curl or wget, please install either.\n"
+			exit
+		fi
+		}
 		
-		# if [[ ${machine} == "Linux" ]]
-		# then
-		# 	echo "Installing for Linux."
-		# 	download https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-		# elif [[ ${machine} == "Mac" ]]
-		# then
-		# 	echo "Installing for Mac."
-		# 	download https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-		# else
-		# 	echo "Only Linux or Mac supported currently."
-		# fi
+		if [[ ${machine} == "Linux" ]]
+		then
+			echo "Installing for Linux."
+			download https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+		elif [[ ${machine} == "Mac" ]]
+		then
+			echo "Installing for Mac."
+			download https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+		else
+			echo "Only Linux or Mac supported currently."
+		fi
 		
-		# TMPDIR=$tmp_dir bash Miniconda3-latest-*-x86_64.sh -p $dir_use/conda -b
-		# rm Miniconda3-latest-*-x86_64.sh
-		# source $dir_use/conda/etc/profile.d/conda.sh
-		# conda activate base
-		# conda clean --all
-		# conda config --add channels bioconda
-		# conda config --add channels conda-forge
-		# conda config --set channel_priority strict
-		# conda config --set auto_activate_base false
-		# conda install --name=base -c conda-forge mamba
-		# conda deactivate
+		TMPDIR=$tmp_dir bash Miniconda3-latest-*-x86_64.sh -p $dir_use/conda -b
+		rm Miniconda3-latest-*-x86_64.sh
+		source $dir_use/conda/etc/profile.d/conda.sh
+		conda activate base
+		conda clean --all
+		conda config --add channels bioconda
+		conda config --add channels conda-forge
+		conda config --set channel_priority strict
+		conda config --set auto_activate_base false
+		conda install --name=base -c conda-forge mamba
+		conda deactivate
 	else
 		echo -e "Skipping miniconda installation.\n"
 	fi
@@ -122,7 +122,7 @@ then
 	conda create --yes -p env
 	conda activate ./env
 
-	echo -e "Installing Jupyter lab/notebook, scipy core and scikit-learn into active env\n"
+	echo -e "Installing Jupyter, scipy core, scikit-learn and R into active env\n"
 	conda install --yes -c conda-forge scikit-learn jupyterlab numpy scipy matplotlib ipython pandas sympy nose
 	mamba install --yes -c conda-forge -c bioconda snakemake
 	conda install --yes -c conda-forge r-base r-essentials
