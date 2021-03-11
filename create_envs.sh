@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# CMD: source prepare_workspace.sh
+# CMD: source create_envs.sh
 
 working_dir="$PWD"
 echo "Preparing project workspace and installing conda environment and/or R at:"
