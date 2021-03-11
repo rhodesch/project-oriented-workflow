@@ -22,11 +22,11 @@ else
 		if [[ -d "/data/$USER" ]]
 		then
 			dir_default="/data/$USER"
-			read -p "Enter directory to install in, or press enter to install in: [$dir_default]: " dir_use
+			read -p "Enter directory to install in, or press enter to install in: [$dir_default] " dir_use
 			# dir_use=${dir_use:-$dir_use}
 		else
 			dir_default="$HOME"
-			read -p "Enter directory to install in, or press enter to install in: [$dir_default]: " dir_use
+			read -p "Enter directory to install in, or press enter to install in: [$dir_default] " dir_use
 			# dir_use=${dir_use:-$dir_use}
 		fi
 
