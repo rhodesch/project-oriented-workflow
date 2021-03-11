@@ -18,15 +18,16 @@ else
 	read -p "Install miniconda? (y/n)" -n 1 -r response
 	if [[ "$response" =~ ^[Yy]$ ]]
 	then
+		echo ""
 		if [[ -d "/data/$USER" ]]
 		then
 			dir_default="/data/$USER"
-			read -p "\nEnter directory to install in, or press enter to install in: [$dir_default]: " dir_use
-			dir_use=${dir_use:-$dir_use}
+			read -p "Enter directory to install in, or press enter to install in: [$dir_default]: " dir_use
+			# dir_use=${dir_use:-$dir_use}
 		else
 			dir_default="$HOME"
-			read -p "\nEnter directory to install in, or press enter to install in: [$dir_default]: " dir_use
-			dir_use=${dir_use:-$dir_use}
+			read -p "Enter directory to install in, or press enter to install in: [$dir_default]: " dir_use
+			# dir_use=${dir_use:-$dir_use}
 		fi
 
 		echo "Installing miniconda to:"
