@@ -39,7 +39,7 @@ conda deactivate
 
 This creates a template defined by the snakemake project with the following structure:
 
-# dir tree here
+```
 project/
 ├── LICENSE
 ├── README.md
@@ -71,7 +71,7 @@ project/
     │   └── samples.schema.yaml
     └── scripts
         └── common.py
-
+```
 
 ### Clone this repo into your main project directory.
 
