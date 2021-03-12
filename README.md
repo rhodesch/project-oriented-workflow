@@ -25,7 +25,7 @@ source ./conda-r-python-snakemake/install_miniconda.sh
 If conda is installed but not cookiecutter, install it in an environment other than base:
 
 ```
-conda create --name cookiecutter cookiecutter
+conda create --name cookiecutter -c conda-forge cookiecutter
 ```
 
 After installing cookiecutter, go to the directory where to want to create your main project folder.
