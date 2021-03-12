@@ -16,8 +16,16 @@ Currently only supports unix based systems.
 Optional, but higly encouraged:
 Prior to setting up an analysis environment, create a project directory with well-defined directory structure. This should contain everything needed for an analysis, with the possible exception of raw data maintained on a dedicated data storage drive. To do so, conda will need to be installed, as we will be using the cookiecutter package to create the project directory:
 
+If conda is not istalled, read below to clone this directory. You can then install conda by running the following and selecting "n" when asked to create the general purpose environment prefixed -p "./env":
+
 ```
-conda install cookiecutter
+source ./conda-r-python-snakemake/create_envs.sh
+```
+
+If conda is installed but not cookiecutter, install it in an environment other than base:
+
+```
+conda create --name cookiecutter cookiecutter
 ```
 
 After installing cookiecutter and activating the relevant conda environment, go to the directory where to want to create your main project folder.
@@ -28,15 +36,12 @@ conda activate cookiecutter-env
 cookiecutter https://github.com/NSLS-II/scientific-python-cookiecutter
 ```
 
-
 This creates a template defined by the snakemake project with the following structure:
 
-End optional steps.
+# dir tree here
 
 
-To 
-
-Clone this repo into your main project directory.
+### Clone this repo into your main project directory.
 
 Run "create_envs.sh" script to create conda environments (and install conda, if needed)"
 
@@ -59,6 +64,8 @@ install.packages(pkgs, lib=Sys.getenv('./R/4.0/library')
 
 This will very likely install packages that have already been installed via conda channels, including those installed in r-essentials. Consequently, when installing an R package externally (and if you need to do this a lot, then conda may not be the solution for you), look up the dependencies in the docs and install those first with conda.
 
+### If using R interactively
+
 Currently, Rstudio is not available on open-source channels. Consequently, if you want to use Rstudio with R in the installed Conda environment there are a few options:
 - On a personal machine, use a locally installed Rstudio Desktop.
 - On a cloud platform, use Rstudio Server, described here: [gce-startup](https://github.com/ctrhodes/gce-startup)
@@ -68,7 +75,7 @@ Currently, Rstudio is not available on open-source channels. Consequently, if yo
 source start_Rstudio.sh
 ```
 
-Alternatively, the excellent Jupyter package and dependcies were installed into the current conda environment. Rstudio shortcuts were also set during IRkernel setup. To use R in Jupyter:
+Alternatively, the excellent Jupyter package and dependcies were installed into the current conda environment. To use R in Jupyter, start Jupyter server and select the R kernal in the Notebooks section:
 
 ```
 jupyter-lab
@@ -78,9 +85,15 @@ jupyter-lab
 jupyter notebook --kernel=ir
 ```
 
-If you have multiple R versions and/or irkernels (probably not a good idea), can choose specific kernel by:
+If you have multiple R versions and/or irkernels installed in the current conda environment or plan on doing so (not a great idea), you can choose specific kernel by running the irkernel setup sript:
 
 ```
-jupyter-lab --kernel=ir
+setup_irkernal.R
+```
+
+Then specify the R kernel on Jupyter startup
+
+```
+jupyter-lab --kernel=irxx
 ```
 
