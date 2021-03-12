@@ -78,6 +78,8 @@ project/
 Move into the desired directory, such as the main project folder, and create the new conda environment"
 
 ```
+cd project/
+git clone https://github.com/ctrhodes/conda-r-python-snakemake.git
 source ./conda-r-python-snakemake/create_env.sh
 ```
 
