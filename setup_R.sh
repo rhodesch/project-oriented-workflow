@@ -17,7 +17,9 @@ conda activate $1
 # detects R version used in 'which R'
 ###########
 # grep -P not supported on macOS. Find replacement cmd for regex capture of R major.minor version
-Rversion=$(R --version | grep -oP 'R version \K([0-9]\.[0-9])')
+# Rversion=$(R --version | grep -oP 'R version \K([0-9]\.[0-9])')
+
+Rversion=$(R --version | grep -o 'R version [0-9]\.[0-9]' | grep -o '[0-9]\.[0.9]')
 if [[ -n "$Rversion" ]]
 then
 	if [[ $(basename $PWD) == "setup" ]]
