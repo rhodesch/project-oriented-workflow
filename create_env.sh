@@ -34,7 +34,7 @@ then
 	echo -e "Installing Jupyter, scipy core, scikit-learn and R into active env\n"
 	conda install --yes -c conda-forge scikit-learn jupyterlab numpy scipy matplotlib ipython pandas sympy nose
 	mamba install --yes -c conda-forge -c bioconda snakemake
-	conda install --yes -c conda-forge r-base r-essentials
+	conda install --yes -c conda-forge r-base r-essentials r-here
 	conda install --yes -c conda-forge r-irkernel
 	conda env export --no-builds > env.yml
 	conda deactivate
