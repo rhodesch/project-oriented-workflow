@@ -16,6 +16,7 @@ conda activate $1
 # make external library for R packages not yet on Conda channels.
 # detects R version used in 'which R'
 ###########
+# grep -P not supported on macOS. Find replacement cmd for regex capture of R major.minor version
 Rversion=$(R --version | grep -oP 'R version \K([0-9]\.[0-9])')
 if [[ -n "$Rversion" ]]
 then
