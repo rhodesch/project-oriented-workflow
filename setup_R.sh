@@ -22,7 +22,7 @@ conda activate $1
 Rversion=$(R --version | grep -o 'R version [0-9]\.[0-9]' | grep -o '[0-9]\.[0.9]')
 if [[ -n "$Rversion" ]]
 then
-	if [[ $(basename $PWD) == "setup" ]]
+	if [[ $(basename $PWD) == "conda-r-python-snakemake" ]]
 	then
 		echo "moving out of setup dir to project dir"
 		cd ..
@@ -30,13 +30,20 @@ then
 		echo "already in project dir"
 	fi
 
-	valid_version=$(ls R/ -v | grep "^[0-9]\.[0-9]$" | tail -n 1)
-	if [[ "$valid_version" != "$Rversion" ]]
+	if [[ -d "R/" ]]
 	then
+		# get highest R verison installed
+		valid_version=$(ls R/ -v | grep "^[0-9]\.[0-9]$" | tail -n 1)
+		if [[ "$valid_version" != "$Rversion" ]]
+		then
+			echo "Adding new R library folder:"
+			echo "$Rversion"
+			mkdir -p R/${Rversion}/library
+		fi
+	else
 		echo "Adding R library folder:"
 		echo "$Rversion"
 		mkdir -p R/${Rversion}/library
-	else
 	fi
 
 	# add project specific settings to the project-level .Rprofile
