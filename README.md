@@ -86,7 +86,7 @@ source ./conda-r-python-snakemake/create_env.sh
 Next run R setup up script from the project directory (a symlink is created in the current directory):
 
 ```
-source setup_R.sh ./env
+source conda-r-python-snakemake/setup_R.sh ./env
 ```
 
 Important note about installing R packages (adapted from [here](https://community.rstudio.com/t/why-not-r-via-conda/9438/4)):
