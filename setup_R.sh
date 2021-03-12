@@ -94,6 +94,7 @@ then
 	echo -e "R is ready for use in Rstudio from within a Conda environment.
 	Run the 'start_Rstudio.sh' file to easily start Rstudio.\n"
 	
+	ln -s conda-r-python-snakemake/setup_R.sh .
 	ln -s conda-r-python-snakemake/start_Rstudio.sh .
 	
 	# Rscript --vanilla setup_irkernal.R
