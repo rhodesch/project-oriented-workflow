@@ -110,3 +110,4 @@ else
 	echo "Please create or activate a non-base conda environment with R installed and re-run this setup script."
 fi
 
+echo "done"
