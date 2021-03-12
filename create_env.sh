@@ -46,7 +46,7 @@ else
 	echo -e "Skipping creation of conda environment.\n"
 fi
 
-# loaded by 'R' module or required by Rstudio but not installed here:
+# loaded by 'R' module or required by Rstudio but not installed here: 
 # conda install -c conda-forge qt
 # conda install -c conda-forge hdf5
 # conda install -c conda-forge openmpi
