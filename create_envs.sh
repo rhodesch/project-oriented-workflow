@@ -129,6 +129,9 @@ then
 	conda install --yes -c conda-forge r-irkernel
 	conda env export --no-builds > env.yml
 	conda deactivate
+	
+	# make symlink for remaining R setup
+	ln -s conda-r-python-snakemake/setup_R.sh .
 
 	# # create conda env for R/Rstudio
 	# echo -e "Creating environment containing R at './env-r'\n"
