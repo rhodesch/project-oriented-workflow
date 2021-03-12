@@ -18,7 +18,7 @@ else
 	echo -e "Please run the included 'install_miniconda.sh', verify conda installation.\n"
 fi
 
-read -p "Create conda envs (1 python, 1 R)? (y/n)" -n 1 -r
+read -p "Create 1 conda env containing python, R, snakemake? (y/n)" -n 1 -r
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
