@@ -104,10 +104,11 @@ then
 	echo ""
 	if [[ $REPLY =~ ^[Yy]$ ]]
 	then
-	Rscript --vanilla setup_irkernal.R
+		Rscript --vanilla setup_irkernal.R
+	fi
 else
 	echo "R is not installed in the active conda environment."
 	echo "Please create or activate a non-base conda environment with R installed and re-run this setup script."
 fi
 
-echo "done"
+echo "Done setting up R."
