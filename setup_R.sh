@@ -83,7 +83,7 @@ then
 	if [[ ! -f $f_environ ]]
 	then
 		echo -e "Setting empty R_LIBS_SITE in project-level .Renviron.\n"
-		R_LIBS_SITE='' > $f_environ
+		echo "R_LIBS_SITE=''" > $f_environ
 	else
 		echo -e "Project-level .Renviron already exists.\n"
 	fi
