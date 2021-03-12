@@ -97,8 +97,12 @@ then
 	ln -s conda-r-python-snakemake/setup_R.sh .
 	ln -s conda-r-python-snakemake/start_Rstudio.sh .
 	
-	# Rscript --vanilla setup_irkernal.R
+	read -p "Configure irkernal? Not needed unless multiple R versions installed. (y/n)" -n 1 -r
+	echo ""
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+	Rscript --vanilla setup_irkernal.R
 else
-	echo "R is not installed in the active conda env."
-	echo "Please install conda to the activate env and re-run this setup script."
+	echo "R is not installed in the active conda environment."
+	echo "Please create or activate a non-base conda environment with R installed and re-run this setup script."
 fi
