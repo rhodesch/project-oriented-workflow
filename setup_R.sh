@@ -109,3 +109,4 @@ else
 	echo "R is not installed in the active conda environment."
 	echo "Please create or activate a non-base conda environment with R installed and re-run this setup script."
 fi
+
