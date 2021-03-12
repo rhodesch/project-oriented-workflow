@@ -99,6 +99,11 @@ install.packages(pkgs, lib=Sys.getenv('./R/4.0/library')
 This will very likely install packages that have already been installed via conda channels, including those installed in r-essentials. Consequently, when installing an R package externally (and if you need to do this a lot, then conda may not be the solution for you), look up the dependencies in the docs and install those first with conda.
 
 
+### Working Directory
+The R package "here" has been installed during conda environment creation and will be loaded into R when the .Rprofile is sourced. So as long as R, jupyter-lab or Rstudio are started from the project root directory (project/ in the above dir tree), there should be no need to call getwd() and file.path() can be replaced with here::here() for easy R path management.
+Likewise, Snakemake sets the current directory to wherever snakemake was called and then looks for a Snakefile in the following order ./Snakefile, ./workflow/Snakefile. If you use the cookiecutter template above, the Snakefile will be at ./workflow/Snakefile. So calling snakemake or R from withing the project root (project/) should keep the current directory synced across R, Python and Snakemake from within the newly created environment, whether these languages are used interactively or in a batch.
+
+
 ### If using R interactively
 
 Currently, Rstudio is not available on open-source channels. If you want to use Rstudio with R in the installed Conda environment there are a few options:
