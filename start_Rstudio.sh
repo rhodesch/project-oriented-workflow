@@ -2,7 +2,7 @@
 
 # start an interactivate job before running.
 # usage: source start_Rstudio.sh <environment>
-# CMD: source start_Rstudio.sh ./env-r
+# CMD: source start_Rstudio.sh ./env
 
 # activate specified conda in current dir.
 ###########
