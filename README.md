@@ -34,11 +34,43 @@ Clone the following cookiecutter snakemake template:
 ```
 conda activate cookiecutter
 cookiecutter https://github.com/ctrhodes/cookiecutter-snakemake-workflow
+conda deactivate
 ```
 
 This creates a template defined by the snakemake project with the following structure:
 
 # dir tree here
+project/
+├── LICENSE
+├── README.md
+├── config
+│   ├── config.yaml
+│   └── samples.tsv
+├── resources
+│   └── README.md
+├── results
+│   ├── README.md
+│   ├── logs
+│   ├── plots
+│   └── tables
+└── workflow
+    ├── Snakefile
+    ├── envs
+    │   └── myenv.yaml
+    ├── notebooks
+    │   ├── notebook.py.ipynb
+    │   └── notebook.r.ipynb
+    ├── report
+    │   ├── some-plot.rst
+    │   └── workflow.rst
+    ├── rules
+    │   ├── common.smk
+    │   └── other.smk
+    ├── schemas
+    │   ├── config.schema.yaml
+    │   └── samples.schema.yaml
+    └── scripts
+        └── common.py
 
 
 ### Clone this repo into your main project directory.
