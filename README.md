@@ -71,11 +71,16 @@ source start_Rstudio.sh
 Alternatively, the excellent Jupyter package and dependcies were installed into the current conda environment. Rstudio shortcuts were also set during IRkernel setup. To use R in Jupyter:
 
 ```
-jupyterlab --kernel=ir
+jupyter-lab
 ```
-
-or
 
 ```
 jupyter notebook --kernel=ir
 ```
+
+If you have multiple R versions and/or irkernels (probably not a good idea), can choose specific kernel by:
+
+```
+jupyter-lab --kernel=ir
+```
+
