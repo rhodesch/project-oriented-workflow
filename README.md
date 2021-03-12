@@ -28,7 +28,7 @@ If conda is installed but not cookiecutter, install it in an environment other t
 conda create --name cookiecutter cookiecutter
 ```
 
-After installing cookiecutter and activating the relevant conda environment, go to the directory where to want to create your main project folder.
+After installing cookiecutter, go to the directory where to want to create your main project folder.
 Clone the following cookiecutter snakemake template:
 
 ```
