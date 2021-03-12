@@ -16,7 +16,6 @@ then
 else
 	echo -e "Could not find Conda executable installed in common locations.\n"
 	echo -e "Please run the included 'install_miniconda.sh', verify conda installation.\n"
-	fi
 fi
 
 read -p "Create conda envs (1 python, 1 R)? (y/n)" -n 1 -r
