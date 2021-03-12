@@ -29,6 +29,9 @@ then
 	else
 		echo "already in project dir"
 	fi
+	
+	# create empty .here file for R "here" package to set project dir at R startup
+	touch .here
 
 	if [[ -d "R/" ]]
 	then
