@@ -16,10 +16,10 @@ Currently only supports unix based systems.
 Optional, but higly encouraged:
 Prior to setting up an analysis environment, create a project directory with well-defined directory structure. This should contain everything needed for an analysis, with the possible exception of raw data maintained on a dedicated data storage drive. To do so, conda will need to be installed, as we will be using the cookiecutter package to create the project directory:
 
-If conda is not istalled, read below to clone this directory. You can then install conda by running the following and selecting "n" when asked to create the general purpose environment prefixed -p "./env":
+If conda is not istalled, clone this repo, then install miniconda by running the following:
 
 ```
-source ./conda-r-python-snakemake/create_envs.sh
+source ./conda-r-python-snakemake/install_miniconda.sh
 ```
 
 If conda is installed but not cookiecutter, install it in an environment other than base:
@@ -32,8 +32,8 @@ After installing cookiecutter and activating the relevant conda environment, go 
 Clone the following cookiecutter snakemake template:
 
 ```
-conda activate cookiecutter-env
-cookiecutter https://github.com/NSLS-II/scientific-python-cookiecutter
+conda activate cookiecutter
+cookiecutter https://github.com/ctrhodes/cookiecutter-snakemake-workflow
 ```
 
 This creates a template defined by the snakemake project with the following structure:
@@ -43,16 +43,16 @@ This creates a template defined by the snakemake project with the following stru
 
 ### Clone this repo into your main project directory.
 
-Run "create_envs.sh" script to create conda environments (and install conda, if needed)"
+Move into the desired directory, such as the main project folder, and create the new conda environment"
 
 ```
-source ./conda-r-python-snakemake/create_envs.sh
+source ./conda-r-python-snakemake/create_env.sh
 ```
 
-Next run R setup up script (a symlink is created in the current directory):
+Next run R setup up script from the project directory (a symlink is created in the current directory):
 
 ```
-source setup_R.sh
+source start_Rstudio.sh ./env
 ```
 
 Important note about installing R packages (adapted from [here](https://community.rstudio.com/t/why-not-r-via-conda/9438/4)):
@@ -64,25 +64,22 @@ install.packages(pkgs, lib=Sys.getenv('./R/4.0/library')
 
 This will very likely install packages that have already been installed via conda channels, including those installed in r-essentials. Consequently, when installing an R package externally (and if you need to do this a lot, then conda may not be the solution for you), look up the dependencies in the docs and install those first with conda.
 
+
 ### If using R interactively
 
-Currently, Rstudio is not available on open-source channels. Consequently, if you want to use Rstudio with R in the installed Conda environment there are a few options:
+Currently, Rstudio is not available on open-source channels. If you want to use Rstudio with R in the installed Conda environment there are a few options:
 - On a personal machine, use a locally installed Rstudio Desktop.
 - On a cloud platform, use Rstudio Server, described here: [gce-startup](https://github.com/ctrhodes/gce-startup)
-- On a cluster with environment modules such as LMOD, use the included Rstudio startup script:
+- On a cluster with environment modules such as LMOD, use the included Rstudio startup script while within the project dir:
 
 ```
-source start_Rstudio.sh
+source start_Rstudio.sh ./env
 ```
 
-Alternatively, the excellent Jupyter package and dependcies were installed into the current conda environment. To use R in Jupyter, start Jupyter server and select the R kernal in the Notebooks section:
+Alternatively, the excellent Jupyter package and dependcies were installed into the current conda environment. To use R in Jupyter, activate the newly created conda environment, start Jupyter server and select the R kernal in the Notebooks section:
 
 ```
 jupyter-lab
-```
-
-```
-jupyter notebook --kernel=ir
 ```
 
 If you have multiple R versions and/or irkernels installed in the current conda environment or plan on doing so (not a great idea), you can choose specific kernel by running the irkernel setup sript:
