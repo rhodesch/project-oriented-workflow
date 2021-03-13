@@ -19,6 +19,7 @@ Prior to setting up an analysis environment, create a project directory with wel
 If conda is not istalled, clone this repo, then install miniconda by running the following:
 
 ```
+git clone https://github.com/ctrhodes/conda-r-python-snakemake.git
 source ./conda-r-python-snakemake/install_miniconda.sh
 ```
 
