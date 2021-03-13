@@ -107,7 +107,7 @@ If using R interactively, add the following to the top of you R script or markdo
 ```
 library(here) # "here" package is for interactive use only, comment out for non-interactive use.
 ```
-For batch or package development uses, use rprojroot::has_file('.here') after starting from project root dir.
+For batch or package development uses, use rprojroot::has_file('.here') instead of here:here() after starting from project root dir.
 
 
 ### If using R interactively
