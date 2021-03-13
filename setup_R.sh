@@ -30,7 +30,7 @@ then
 		echo "already in project dir"
 	fi
 	
-	# create empty .here file for R "here" package to set project dir at R startup
+	# create empty .here file for R "here" or "rprojroot" package to set project root dir at R startup
 	touch .here
 
 	if [[ -d "R/" ]]
@@ -56,10 +56,8 @@ then
 	if [[ ! -f $f_profile ]]
 	then
 		echo -e "Writing to project-level .Rprofile.\n"
-
-		echo "
-		library(here)
 		
+		echo "
 		print('Path to R:')
 		print(R.home())
 
