@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# start an interactivate job before running.
+# If using Biowulf, start an interactivate job before running (sinteractive --cpus-per-task=4 --mem=20g --time=8:00:00).
 # usage: source start_Rstudio.sh <environment>
 # CMD: source start_Rstudio.sh ./env
 
