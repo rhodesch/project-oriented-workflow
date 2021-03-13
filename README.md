@@ -76,7 +76,7 @@ project/
 
 ### Clone this repo into your main project directory.
 
-Move into the desired directory, such as the main project folder, and create the new conda environment"
+Move into the desired directory, such as the main project folder, and create the new conda environment, This will take a while.
 
 ```
 cd project/
