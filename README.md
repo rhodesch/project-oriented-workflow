@@ -103,7 +103,22 @@ This will very likely install packages that have already been installed via cond
 ### Working Directory
 The R package "here" has been installed during conda environment creation and a .here file was created in the project root directory. Upon R startup, the here package will look for the .here file to set a root directory in the here object, even if the current working dir is changed with setwd(). So as long as a .R or .Rmd file are opened somewhere in the project directory tree (project/workflow/scripts/script.R), the .here file at project/.here will be found. Calling setwd() and/or file.path() can be replaced with here::here() for easy R path management. Keep in mind here() conflicts with other functions, especially Tidyverse packages. For batch or package development uses, using rprojroot::has_file('.here') may be advisable instead of here::here().
 
-Likewise, Snakemake sets the current directory to wherever snakemake was called and then looks for a Snakefile in the following order ./Snakefile, ./workflow/Snakefile. If you use the cookiecutter template above, the Snakefile will be at ./workflow/Snakefile. So calling snakemake or R from withing the project root (project/) should keep the current directory synced across R, Python and Snakemake from within the newly created environment, whether these languages are used interactively or in a batch. 
+Likewise, Snakemake sets the current directory to wherever snakemake was called and then looks for a Snakefile in the following order ./Snakefile, ./workflow/Snakefile. If you use the cookiecutter template above, the Snakefile will be at ./workflow/Snakefile. So calling snakemake or R from withing the project root (project/) should keep the current directory synced across R, Python and Snakemake from within the newly created environment, whether these languages are used interactively or in a batch.
+
+For example, opening an R script located at ./workflow/scripts/script.R (or anywhere within the project/ root dir):
+```
+> here::dr_here()
+> here() starts at /project.
+- This directory contains a file ".here"
+- Initial working directory: /project/workflow/scripts
+- Current working directory: /project/workflow/scripts
+
+> setwd('~')
+> getwd()
+> here::here()
+"/proj"
+```
+
 
 ### If using R interactively
 
