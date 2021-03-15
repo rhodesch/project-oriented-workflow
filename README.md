@@ -101,13 +101,7 @@ This will very likely install packages that have already been installed via cond
 
 
 ### Working Directory
-The R package "here" has been installed during conda environment creation and will be loaded into R when the .Rprofile is sourced. So as long as R, jupyter-lab or Rstudio are started from the project root directory (project/ in the above dir tree), there should be no need to call getwd() and file.path() can be replaced with here::here() for easy R path management. If using R interactively, add the following to the top of you R script or markdown file:
-
-```
-library(here) # "here" package is for interactive use only, comment out for non-interactive use.
-```
-
-For batch or package development uses, use rprojroot::has_file('.here') instead of here:here() after starting from project root dir.
+The R package "here" has been installed during conda environment creation and a .here file was created in the project root directory. Upon R startup, the here package will look for the .here file to set a root directory in the here object, even if the current working dir is changed with setwd(). So as long as a .R or .Rmd file are opened somewhere in the project directory tree (project/workflow/scripts/script.R), the .here file at project/.here will be found. Calling setwd() and/or file.path() can be replaced with here::here() for easy R path management. Keep in mind here() conflicts with other functions, especially Tidyverse packages. For batch or package development uses, using rprojroot::has_file('.here') may be advisable instead of here::here().
 
 Likewise, Snakemake sets the current directory to wherever snakemake was called and then looks for a Snakefile in the following order ./Snakefile, ./workflow/Snakefile. If you use the cookiecutter template above, the Snakefile will be at ./workflow/Snakefile. So calling snakemake or R from withing the project root (project/) should keep the current directory synced across R, Python and Snakemake from within the newly created environment, whether these languages are used interactively or in a batch. 
 
