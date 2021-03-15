@@ -58,6 +58,8 @@ then
 		echo -e "Writing to project-level .Rprofile.\n"
 		
 		echo "
+		here::dr_here()
+		
 		print('Path to R:')
 		print(R.home())
 
