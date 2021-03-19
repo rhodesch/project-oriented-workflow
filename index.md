@@ -6,7 +6,8 @@ Using reproducible environments allows experiments and analyses to be repeated b
 Additionally, reproducible environments will aim to coordinate and install all low-level operating system dependencies, allowing you to create code that is more OS-independent. So in the examples above, when an environment is shared, it can be shared from a unix machine to one running windows with little or no issues. 
 
 How do reproducible environments fit into the large picture of good data science analyses?
-When we think about data analysis, we often think just about the resulting reports, insights, or visualizations; the output ("product") is the essence of the analysis. Instead, it is much more helpful to this of your analysis as a workflow, in which workflow-related operations (QC, visualizaiton) are executed within a well-defined project directory structure and using a project specific reproducible environment. 
+When we think about data analysis, we often think just about the resulting reports, insights, or visualizations; the output ("product") is the essence of the analysis. Instead, it is much more helpful to this of your analysis as a workflow, in which workflow-related operations (QC, visualizaiton) are executed within a well-defined project directory structure and using a project specific reproducible environment.
+
 The current documentation will cover two important topics to establish a project-oriented workflow:
 - Create a self-contained project, structured for bioinformatics workflows
 - Create a reproducible analysis environment containing common data science tools
