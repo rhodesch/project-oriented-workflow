@@ -8,7 +8,7 @@ Additionally, reproducible environments will aim to coordinate and install all l
 How do reproducible environments fit into the large picture of good data science analyses?
 When we think about data analysis, we often think just about the resulting reports, insights, or visualizations; the output ("product") is the essence of the analysis. Instead, it is much more helpful to this of your analysis as a workflow, in which workflow-related operations (QC, visualizaiton) are executed within a well-defined project directory structure and using a project specific reproducible environment. 
 The current documentation will cover two important topics to establish a project-oriented workflow:
-- Create a directory structure designed for bioinformatics workflows
+- Create a self-contained project, structured for bioinformatics workflows
 - Create a reproducible conda environment containing common data science tools
 
 
