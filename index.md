@@ -1,5 +1,5 @@
 * Will be replaced with the ToC
-{:toc}
+{:toc: left}
 
 ## Welcome to GitHub Pages
 
