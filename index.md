@@ -13,9 +13,18 @@ The current documentation will cover two important topics to establish a project
 - Create a reproducible analysis environment containing common data science tools
 
 ## Get started
-This document describes automated creation of a self-contained project structure and installation of R, Python and Snakemake and other software used for bioinformatic and data science projects in conda environments. Packages installed include 1) r-base and r-essentials, 2) python, JupyterLab and core SciPy packages and 3) Snakemake workflow management system allowing interactive or batch analysis on local, cluster and cloud platforms.
+This repository contains setup scripts to automate the installation of R, Python and Snakemake and other software used for bioinformatic and data science projects in conda environments. Setup will install conda (if needed) as well as 1) **R** and the conda-forge r-essentials package, 2) **Python** and core SciPy packages, 3) **Jupyter** Lab and Notebook for interactive R/Python use and 4) **Snakemake** workflow management system. Collectively the installed environment will allow reproducible analyses in interactive or batch modes that can be executed on local, cluster and cloud platforms.
 
-Setup will also streamline the setup of R within a conda env by creating: project-level .Rprofile and .Renvironment files, a .here file to set project-level working directory in R, and an external R library directory for ad hoc installation of R packages not yet on conda-forge or bioconda channels.
+This website aims to walk you through the automated creation of a self-contained project workspace suitable for most bioinformatics and data science analyses. The workspace consists of a well-defined directory structure and a software environment designed for reproducible analyses.
+
+Directory Structure:
+Setup will manage the creation and organize your new project folder and subfolders using a well-documented directory structure (adapted from the Snakemake workflow) that is very useful for most analyses. **Everything within the main project folder is self-contained, isolated from software and configs elsewhere on your system, and will not harm existing software installations**
+
+Software Environment:
+Setup will also install 1) **R** and the r-essentials package, 2) **Python** and core SciPy packages, 3) **Jupyter** Lab and Notebook for interactive R/Python use and 4) **Snakemake** workflow management system. Collectively the installed environment will allow reproducible analyses in interactive or batch modes that can be executed on local, cluster and cloud platforms. Importantly, the installed software will be contained in the newly installed conda environment. **They will not conflict with existing installations elsewhere on your system**
+
+Config Files:
+Setup will also streamline the setup of R within a conda env by creating: _Project-level_ .Rprofile and .Renvironment files, a .here file to set project-level working directory in R, and an external R library directory for ad hoc installation of R packages not yet on conda-forge or bioconda channels. **They will not conflict with existing config files elsewhere on your system**
 
 Importantly, when you use R with conda you need to stick to conda as much as you can. Whenever possible, DON'T LET R INSTALL PACKAGES FOR YOU. In other words ALWAYS USE CONDA TO INSTALL THE PACKAGES YOU NEED unless there is not a conda recipe for that package. In that case, see below.
 
