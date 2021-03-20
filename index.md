@@ -18,12 +18,15 @@ This repository contains setup scripts to automate the installation of R, Python
 This website aims to walk you through the automated creation of a self-contained project workspace suitable for most bioinformatics and data science analyses. The workspace consists of a well-defined directory structure and a software environment designed for reproducible analyses.
 
 Directory Structure:
+
 Setup will manage the creation and organize your new project folder and subfolders using a well-documented directory structure (adapted from the Snakemake workflow) that is very useful for most analyses. **Everything within the main project folder is self-contained, isolated from software and configs elsewhere on your system, and will not harm existing software installations**
 
 Software Environment:
+
 Setup will also install 1) **R** and the r-essentials package, 2) **Python** and core SciPy packages, 3) **Jupyter** Lab and Notebook for interactive R/Python use and 4) **Snakemake** workflow management system. Collectively the installed environment will allow reproducible analyses in interactive or batch modes that can be executed on local, cluster and cloud platforms. Importantly, the installed software will be contained in the newly installed conda environment. **They will not conflict with existing installations elsewhere on your system**
 
 Config Files:
+
 Setup will also streamline the setup of R within a conda env by creating: _Project-level_ .Rprofile and .Renvironment files, a .here file to set project-level working directory in R, and an external R library directory for ad hoc installation of R packages not yet on conda-forge or bioconda channels. **They will not conflict with existing config files elsewhere on your system**
 
 Importantly, when you use R with conda you need to stick to conda as much as you can. Whenever possible, DON'T LET R INSTALL PACKAGES FOR YOU. In other words ALWAYS USE CONDA TO INSTALL THE PACKAGES YOU NEED unless there is not a conda recipe for that package. In that case, see below.
@@ -138,7 +141,7 @@ here() starts at /project.
 Likewise, Snakemake sets the current directory to wherever snakemake was called and then looks for a Snakefile in the following order ./Snakefile, ./workflow/Snakefile. If you use the cookiecutter template above, the Snakefile will be at ./workflow/Snakefile. So calling snakemake or R from the project root (project/) should keep the current directory synced across R, Python and Snakemake from within the newly created environment, whether these languages are used interactively (Jupyter, Rstudio) or in a batch.
 
 
-## If using R interactively
+## R interactively
 
 Currently, Rstudio is not available on open-source channels. If you want to use Rstudio with R in the installed Conda environment there are a few options:
 - On a personal machine, use a locally installed Rstudio Desktop.
@@ -181,3 +184,6 @@ Then specify the R kernel on Jupyter startup
 ```
 jupyter-lab --kernel=irxx
 ```
+
+## Python interactively
+
