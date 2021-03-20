@@ -28,6 +28,7 @@ Importantly, when you use R with conda you need to stick to conda as much as you
 
 Currently only supports unix based systems.
 
+
 ### Create project folder with Cookiecutter
 Optional, but *higly encouraged*:
 Prior to setting up an analysis environment, create a self-contained project directory with well-defined directory structure. This should contain everything needed for an analysis, with the possible exception of raw data maintained on a dedicated data storage drive. The creation of the project folder is automated using a package called cookiecutter which will use a template to create the same directory structure every time. To do so, conda will need to be installed:
