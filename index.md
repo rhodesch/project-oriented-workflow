@@ -13,20 +13,15 @@ The current documentation will cover two important topics to establish a project
 - Create a reproducible analysis environment containing common data science tools
 
 ## Get started
-This repository contains setup scripts to automate the installation of R, Python and Snakemake and other software used for bioinformatic and data science projects in conda environments. Setup will install conda (if needed) as well as 1) **R** and the conda-forge r-essentials package, 2) **Python** and core SciPy packages, 3) **Jupyter** Lab and Notebook for interactive R/Python use and 4) **Snakemake** workflow management system. Collectively the installed environment will allow reproducible analyses in interactive or batch modes that can be executed on local, cluster and cloud platforms.
-
 This website aims to walk you through the automated creation of a self-contained project workspace suitable for most bioinformatics and data science analyses. The workspace consists of a well-defined directory structure and a software environment designed for reproducible analyses.
 
-Directory Structure:
+Directory Structure:<br/>
+Setup will manage the creation and organize your new project folder and subfolders using a well-documented directory structure (adapted from the Snakemake workflow) that is very useful for most analyses. In addition to making organizing your new project, the directory structure is compatable with Snakemake workflows. After you develop each distinct analysis script, you can place you can add a step to your Snakemake workflow, to build a reproducible and transparent analysis as you go. **Everything within the main project folder is self-contained, isolated from other projects on your system, and will not harm existing software installations or configurations elsewhere**
 
-Setup will manage the creation and organize your new project folder and subfolders using a well-documented directory structure (adapted from the Snakemake workflow) that is very useful for most analyses. **Everything within the main project folder is self-contained, isolated from software and configs elsewhere on your system, and will not harm existing software installations**
+Software Environment:<br/>
+Setup will also install 1) **R** and many common CRAN packages, 2) **Python** and core SciPy packages, 3) **Jupyter** Lab and Notebook for interactive R/Python use and 4) **Snakemake** workflow management system. Collectively the installed environment will allow reproducible analyses in interactive or batch modes that can be executed on local, cluster and cloud platforms. Importantly, the installed software will be contained in the newly installed conda environment. **They will not conflict with existing installations elsewhere on your system**
 
-Software Environment:
-
-Setup will also install 1) **R** and the r-essentials package, 2) **Python** and core SciPy packages, 3) **Jupyter** Lab and Notebook for interactive R/Python use and 4) **Snakemake** workflow management system. Collectively the installed environment will allow reproducible analyses in interactive or batch modes that can be executed on local, cluster and cloud platforms. Importantly, the installed software will be contained in the newly installed conda environment. **They will not conflict with existing installations elsewhere on your system**
-
-Config Files:
-
+Config Files:<br/>
 Setup will also streamline the setup of R within a conda env by creating: _Project-level_ .Rprofile and .Renvironment files, a .here file to set project-level working directory in R, and an external R library directory for ad hoc installation of R packages not yet on conda-forge or bioconda channels. **They will not conflict with existing config files elsewhere on your system**
 
 Importantly, when you use R with conda you need to stick to conda as much as you can. Whenever possible, DON'T LET R INSTALL PACKAGES FOR YOU. In other words ALWAYS USE CONDA TO INSTALL THE PACKAGES YOU NEED unless there is not a conda recipe for that package. In that case, see below.
@@ -95,6 +90,7 @@ project/
         └── common.py
 ```
 
+
 ### Create analysis environment in main project directory
 
 Move into the desired directory, such as the main project folder, and create the new conda environment, This will take a while.
@@ -119,6 +115,7 @@ install.packages(pkgs, lib=Sys.getenv('./R/4.0/library')
 ```
 
 This will very likely install packages that have already been installed via conda channels, including those installed in r-essentials. Consequently, when installing an R package externally (and if you need to do this a lot, then conda may not be the solution for you), look up the dependencies in the docs and install those first with conda.
+
 
 ## Working Directory
 The R package "here" will be installed during conda environment creation and an empty .here file is created in the project root directory. Upon R startup, the here package will move into parent directories and look for a .here file (and others like .Rproj or .git). If the .here file is found, the R root directory is set in the here object, even if the current working dir is changed with setwd(). So as long as a .R or .Rmd file are opened somewhere in the project directory tree (project/workflow/scripts/script.R), the .here file at project/.here will be found. Calling setwd() and/or file.path() can be replaced with here::here() for easy R path management. Keep in mind the here() conflicts with other functions named here(), especially Tidyverse packages, so be sure to call here::here() instead of library(here);here(). For batch or package development uses, using rprojroot::has_file('.here') may be advisable instead of here::here().
@@ -186,4 +183,6 @@ jupyter-lab --kernel=irxx
 ```
 
 ## Python interactively
+
+
 
