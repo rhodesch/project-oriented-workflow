@@ -1,36 +1,38 @@
 * Will be replaced with the ToC
 {:toc}
 
+This website aims to walk you through the automated creation of a self-contained project workspace suitable for most bioinformatics and data science analyses. The workspace consists of a well-defined directory structure and a software environment focused on reproducible analysis.
+
 ## Why use reproducile environments?
-Using reproducible environments allows experiments and analyses to be repeated by yourself or others, increase traceability, and improve collaborations of teams sharing and running code. If you have set up an environment and installed packages, having a collaborator or team member reproduce your work can be as trivial as 1) point to the project directory and run code with packages installed only for that project or 2) send a collaborator you environment build properties that rebuilds you environment on a new machine.
-Additionally, reproducible environments will aim to coordinate and install all low-level operating system dependencies, allowing you to create code that is more OS-independent. So in the examples above, when an environment is shared, it can be shared from a unix machine to one running windows with little or no issues. 
+Using reproducible environments allows experiments and analyses to be repeated by yourself or others, increase traceability, and improve collaborations of teams sharing and running code. If you have set up an environment and installed packages, having a collaborator or team member reproduce your work can be as trivial as 1) point to the project directory and run code with packages installed only for that project or 2) send a collaborator you environment build properties that rebuilds you environment on a new machine.<br/>
+Additionally, reproducible environments will aim to coordinate and install all low-level operating system dependencies, allowing you to create code that is more OS-independent. For example, when sharing an environment, it can be shared betwee unix and windows machines with little or no issues.
 
 How do reproducible environments fit into the large picture of good data science analyses?
-When we think about data analysis, we often think just about the resulting reports, insights, or visualizations; the output ("product") is the essence of the analysis. Instead, it is much more helpful to this of your analysis as a workflow, in which workflow-related operations (QC, visualizaiton) are executed within a well-defined project directory structure and using a project specific reproducible environment.
+When we think about data analysis, we often think just about the resulting reports, insights, or visualizations; the output ("product") is the essence of the analysis. Instead, it is much more useful to think of your analysis as a workflow, in which workflow-related operations (QC, visualizaiton) occur within a well-defined project directory structure and using a project specific software environment. Such a _Project-Oriented Workflow_ will save time, reduce errors, and becomes critical as the size and complexity of analyses grow.
 
-The current documentation will cover two important topics to establish a project-oriented workflow:
+We will cover two important topics to establish a project-oriented workflow:
 - Create a self-contained project, structured for bioinformatics workflows
 - Create a reproducible analysis environment containing common data science tools
 
 ## Get started
-This website aims to walk you through the automated creation of a self-contained project workspace suitable for most bioinformatics and data science analyses. The workspace consists of a well-defined directory structure and a software environment designed for reproducible analyses.
+What will be installed?
 
 Directory Structure:<br/>
-Setup will manage the creation and organize your new project folder and subfolders using a well-documented directory structure (adapted from the Snakemake workflow) that is very useful for most analyses. In addition to making organizing your new project, the directory structure is compatable with Snakemake workflows. After you develop each distinct analysis script, you can place you can add a step to your Snakemake workflow, to build a reproducible and transparent analysis as you go. **Everything within the main project folder is self-contained, isolated from other projects on your system, and will not harm existing software installations or configurations elsewhere**
+Setup will manage the creation and organize your new project folder and subfolders using a well-documented directory structure (adapted from the Snakemake workflow) that is very useful for most analyses. In addition to making organizing your new project, the directory structure is compatable with Snakemake workflows. After you develop each distinct analysis script, you can place you can add a step to your Snakemake workflow, to build a reproducible and transparent analysis as you go. _Everything within the main project folder is self-contained, isolated from other projects on your system, and will not harm existing software installations or configurations elsewhere_
 
 Software Environment:<br/>
-Setup will also install 1) **R** and many common CRAN packages, 2) **Python** and core SciPy packages, 3) **Jupyter** Lab and Notebook for interactive R/Python use and 4) **Snakemake** workflow management system. Collectively the installed environment will allow reproducible analyses in interactive or batch modes that can be executed on local, cluster and cloud platforms. Importantly, the installed software will be contained in the newly installed conda environment. **They will not conflict with existing installations elsewhere on your system**
+Setup will also install 1) **R** and many common CRAN packages, 2) **Python** and core SciPy packages, 3) **Jupyter** Lab and Notebook for interactive R/Python use and 4) **Snakemake** workflow management system. Collectively the installed environment will allow reproducible analyses in interactive or batch modes that can be executed on local, cluster and cloud platforms. Importantly, the installed software will be contained in the newly installed conda environment. _They will not conflict with existing installations elsewhere on your system_
 
 Config Files:<br/>
-Setup will also streamline the setup of R within a conda env by creating: _Project-level_ .Rprofile and .Renvironment files, a .here file to set project-level working directory in R, and an external R library directory for ad hoc installation of R packages not yet on conda-forge or bioconda channels. **They will not conflict with existing config files elsewhere on your system**
+Setup will also streamline the setup of R within a conda env by creating: _Project-level_ .Rprofile and .Renvironment files, a .here file to set project-level working directory in R, and an external R library directory for ad hoc installation of R packages not yet on conda-forge or bioconda channels. _They will not conflict with existing config files elsewhere on your system_
 
 Importantly, when you use R with conda you need to stick to conda as much as you can. Whenever possible, DON'T LET R INSTALL PACKAGES FOR YOU. In other words ALWAYS USE CONDA TO INSTALL THE PACKAGES YOU NEED unless there is not a conda recipe for that package. In that case, see below.
 
-Currently only supports unix based systems.
+Currently only unix based systems supported.
 
 
 ### Create project folder with Cookiecutter
-Optional, but *higly encouraged*:
+Optional, but _**higly encouraged**_:
 Prior to setting up an analysis environment, create a self-contained project directory with well-defined directory structure. This should contain everything needed for an analysis, with the possible exception of raw data maintained on a dedicated data storage drive. The creation of the project folder is automated using a package called cookiecutter which will use a template to create the same directory structure every time. To do so, conda will need to be installed:
 
 If conda is not istalled, clone this repo, then install miniconda by running the following:
