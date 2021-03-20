@@ -143,6 +143,8 @@ Likewise, Snakemake sets the current directory to wherever snakemake was called 
 
 ## R interactively
 
+### Rstudio
+
 Currently, Rstudio is not available on open-source channels. If you want to use Rstudio with R in the installed Conda environment there are a few options:
 - On a personal machine, use a locally installed Rstudio Desktop.
 - On a cloud platform, use Rstudio Server, described here: [gce-startup](https://github.com/ctrhodes/gce-startup)
@@ -152,6 +154,8 @@ Currently, Rstudio is not available on open-source channels. If you want to use 
 sinteractive # Compute intensive jobs often not allowed on cluster head node
 source start_Rstudio.sh ./env
 ```
+
+### Jupyter
 
 Alternatively, the excellent Jupyter package and dependcies were installed into the current conda environment. To use R in Jupyter, go to project root directory, activate the newly created conda environment, start Jupyter server and select the R kernal in the Notebooks section:
 
@@ -185,7 +189,11 @@ Then specify the R kernel on Jupyter startup
 jupyter-lab --kernel=irxx
 ```
 
+### Nvim-R
+
 ## Python interactively
+
+### Jupyter
 
 
 
