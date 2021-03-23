@@ -4,7 +4,7 @@
 
 # cd into main project directory, where conda env with R exists, then run this scipt:
 # usage: source setup_R.sh <environment>
-# CMD: source setup_R.sh ./env
+# CMD: source setup_R.sh ./env-r
 
 
 # activate specified conda in current dir.
