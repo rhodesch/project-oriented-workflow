@@ -18,7 +18,7 @@ else
 	echo -e "Please run the included 'install_miniconda.sh', verify conda installation.\n"
 fi
 
-read -p "Create 1 conda env containing python, R, snakemake? (y/n)" -n 1 -r
+read -p "Create 2 conda envs. 1 containing python and snakemake, 1 with R and reticulate? (y/n)" -n 1 -r
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -34,14 +34,26 @@ then
 	echo -e "Installing Jupyter, scipy core, scikit-learn and R into active env\n"
 	conda install --yes -c conda-forge scikit-learn jupyterlab numpy scipy matplotlib ipython pandas sympy nose
 	mamba install --yes -c conda-forge -c bioconda snakemake
-	conda install --yes -c conda-forge r-base r-essentials r-here
-	conda install --yes -c conda-forge r-irkernel
 	conda env export --no-builds > env.yml
 	conda deactivate
+	
+	# create conda env for R
+	echo -e "Creating general use conda environment at './env-r'\n"
+	conda activate base
+	conda create --yes -p env-r
+	conda activate ./env-r
 
-	echo -e "Activate this conda environment by typing:"
+	echo -e "Installing R into active env-r\n"
+	conda install --yes -c conda-forge jupyterlab ipython r-irkernel
+	conda install --yes -c conda-forge r-base r-essentials r-here r-reticulate 
+	conda env export --no-builds > env-r.yml
+	conda deactivate
+	
+
+	echo -e "Activate conda environments by typing:"
 	echo -e "conda activate <env_path>\n"
-	echo -e "For exampe, 'conda activate ./env' (not 'conda activate env')"
+	echo -e "For exampe, python or snakemake 'conda activate ./env' (not 'conda activate env')"
+	echo -e "For exampe, for R 'conda activate ./env-r' (not 'conda activate env-r')"
 else
 	echo -e "Skipping creation of conda environment.\n"
 fi
