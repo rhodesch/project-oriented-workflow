@@ -57,18 +57,32 @@ cookiecutter https://github.com/ctrhodes/cookiecutter-snakemake-workflow
 conda deactivate
 ```
 
-This creates a template defined by the snakemake project with the following structure:
+or if your project directory already exists:
+```
+conda activate cookiecutter
+cookiecutter -s https://github.com/ctrhodes/cookiecutter-snakemake-workflow
+conda deactivate
+```
+
+Either way, if you see a message like:<\br>
+'You've downloaded /Users/rhodesct/.cookiecutters/cookiecutter-snakemake-workflow before. Is it okay to delete and re-download it? [yes]:'<\br>
+type 'yes' or press enter.
+
+
+This will create a project folder with the following structure
 
 ```
 project/
 ├── LICENSE
 ├── README.md
-├── config
+├── config                      <- Experiment wide config files and sample info
 │   ├── config.yaml
-│   └── samples.tsv
-├── resources
+│   └── samples.tsv             <- main file containing sample info
+│   └── units.tsv               <- additional sample info
+├── data                        <- Raw data (treat as immutable). Better to put sample info in samples.tsv
+├── resources                   <- Download Bioconductor packages defined in env.yaml files
 │   └── README.md
-├── results
+├── results                     <- Create results subdirs as you (or snakemake) adds analysis steps/rules
 │   ├── README.md
 │   ├── logs
 │   ├── plots
