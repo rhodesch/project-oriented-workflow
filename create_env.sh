@@ -30,7 +30,6 @@ then
 	conda activate base
 	conda create --yes -p env
 	conda activate ./env
-
 	echo -e "Installing Jupyter, scipy core, scikit-learn and R into active env\n"
 	conda install --yes -c conda-forge scikit-learn jupyterlab numpy scipy matplotlib ipython pandas sympy nose
 	# mamba install --yes -c conda-forge -c bioconda snakemake
@@ -40,7 +39,7 @@ then
 	# create conda env for snakemake (per documentation, keep isolated)
 	echo -e "Creating snakemake conda environment at './snakemake'\n"
 	conda activate base
-	mamba create --yes -c conda-forge -c bioconda -p snakemake snakemake
+	mamba create --yes -p snakemake -c conda-forge -c bioconda snakemake
 	conda env export --no-builds > snakemake.yml
 	conda deactivate
 	
