@@ -209,5 +209,24 @@ jupyter-lab --kernel=irxx
 
 ### Jupyter
 
-
+## Snakemake and R
+The input snakemake S4 object used in R scripts has the following structure, str(snakemake):
+Formal class 'Snakemake' [package ".GlobalEnv"] with 12 slots
+  ..@ input          :List of 2
+  .. ..$    : chr "data/test_in.txt"
+  .. ..$ txt: chr "data/test_in.txt"
+  ..@ output         :List of 1
+  .. ..$ : chr "results/test/test_out.txt"
+  ..@ params         : list()
+  ..@ wildcards      : list()
+  ..@ threads        : num 1
+  ..@ log            : list()
+  ..@ resources      : list()
+  ..@ config         : list()
+  ..@ rule           : chr "test"
+  ..@ bench_iteration: num NA
+  ..@ scriptdir      : chr "/absolute/path/to/projectdir/workflow/scripts"
+  ..@ source         :function (...)
+  
+  
 
