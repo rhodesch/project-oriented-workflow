@@ -39,8 +39,8 @@ then
 	# create conda env for snakemake (per documentation, keep isolated)
 	echo -e "Creating snakemake conda environment at './snakemake'\n"
 	conda activate base
-	mamba create --yes -p snakemake -c conda-forge -c bioconda snakemake
-	conda env export --no-builds > snakemake.yml
+	mamba create --yes -p env-snakemake -c conda-forge -c bioconda snakemake
+	conda env export --no-builds > env-snakemake.yml
 	conda deactivate
 	
 	# create conda env for R
