@@ -57,9 +57,9 @@ then
 
 	echo -e "Activate conda environments by typing:"
 	echo -e "conda activate <env_path>\n"
-	echo -e "For exampe, python 'conda activate ./env' (not 'conda activate env')"
-	echo -e "For exampe, snakemake 'conda activate ./snakemake' (not 'conda activate snakemake')"
-	echo -e "For exampe, for R 'conda activate ./env-r' (not 'conda activate env-r')"
+	echo -e "For example, python 'conda activate ./env' (not 'conda activate env')"
+	echo -e "For example, snakemake 'conda activate ./snakemake' (not 'conda activate snakemake')"
+	echo -e "For example, for R 'conda activate ./env-r' (not 'conda activate env-r')"
 else
 	echo -e "Skipping creation of conda environment.\n"
 fi
