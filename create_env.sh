@@ -33,8 +33,15 @@ then
 
 	echo -e "Installing Jupyter, scipy core, scikit-learn and R into active env\n"
 	conda install --yes -c conda-forge scikit-learn jupyterlab numpy scipy matplotlib ipython pandas sympy nose
-	mamba install --yes -c conda-forge -c bioconda snakemake
+	# mamba install --yes -c conda-forge -c bioconda snakemake
 	conda env export --no-builds > env.yml
+	conda deactivate
+	
+	# create conda env for snakemake (per documentation, keep isolated)
+	echo -e "Creating snakemake conda environment at './snakemake'\n"
+	conda activate base
+	mamba create --yes -c conda-forge -c bioconda -p snakemake snakemake
+	conda env export --no-builds > snakemake.yml
 	conda deactivate
 	
 	# create conda env for R
@@ -42,7 +49,6 @@ then
 	conda activate base
 	conda create --yes -p env-r
 	conda activate ./env-r
-
 	echo -e "Installing R into active env-r\n"
 	conda install --yes -c conda-forge jupyterlab ipython r-irkernel
 	conda install --yes -c conda-forge r-base r-essentials r-here r-reticulate 
@@ -52,7 +58,8 @@ then
 
 	echo -e "Activate conda environments by typing:"
 	echo -e "conda activate <env_path>\n"
-	echo -e "For exampe, python or snakemake 'conda activate ./env' (not 'conda activate env')"
+	echo -e "For exampe, python 'conda activate ./env' (not 'conda activate env')"
+	echo -e "For exampe, snakemake 'conda activate ./snakemake' (not 'conda activate snakemake')"
 	echo -e "For exampe, for R 'conda activate ./env-r' (not 'conda activate env-r')"
 else
 	echo -e "Skipping creation of conda environment.\n"
