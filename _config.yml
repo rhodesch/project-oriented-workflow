@@ -1,4 +1,4 @@
 # remote_theme: aksakalli/jekyll-doc-theme@gh-pages
 # theme: minima
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 markdown: kramdown
