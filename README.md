@@ -1,4 +1,4 @@
-# Install R, Python and Snakemake within a standardized directory structure
+# Install R, Python and Snakemake in a standard directory structure
 Reproducible analysis with R, Python and Snakemake via Conda
 
 For full documentation and instructions: [Project Homepage](https://ctrhodes.github.io/conda-r-python-snakemake)
