@@ -1,5 +1,5 @@
-# Install R, Python and Snakemake in a standardized directory structure
-Reproducible analysis with R, Python and Snakemake via Conda
+# Automated setup of project directory and bioinformatic software
+Reproducible, self-contained analyses with R, Python and Snakemake via Conda
 
 For full documentation and instructions: [Project Homepage](https://ctrhodes.github.io/conda-r-python-snakemake)
 
