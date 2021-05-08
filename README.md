@@ -1,4 +1,4 @@
-# Install R, Python and Snakemake in Conda environments
+# Install R, Python and Snakemake in Conda environments within a standardized directory structure
 Reproducible analysis with R, Python and Snakemake via Conda
 
 For full documentation and instructions: [Project Homepage](https://ctrhodes.github.io/conda-r-python-snakemake)
