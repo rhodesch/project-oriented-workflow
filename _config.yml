@@ -1,4 +1,3 @@
-# remote_theme: aksakalli/jekyll-doc-theme@gh-pages
-# theme: minima
-theme: jekyll-theme-leap-day
+remote_theme: pmarsceill/just-the-docs
+# theme: jekyll-theme-leap-day
 markdown: kramdown
