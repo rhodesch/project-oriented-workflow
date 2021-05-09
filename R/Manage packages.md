@@ -1,3 +1,7 @@
+---
+sort: 3
+---
+
 # Managing R packages with Conda
 
 When you use R with conda you need to stick to conda as much as you can. Whenever possible, DON'T LET R INSTALL PACKAGES FOR YOU. In other words, ALWAYS USE CONDA TO INSTALL THE PACKAGES YOU NEED unless there is not a conda recipe for that package. In that case, see below.

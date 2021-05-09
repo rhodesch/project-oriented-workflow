@@ -1,3 +1,7 @@
+---
+sort: 4
+---
+
 # Working Directory
 
 The R package "here" will be installed during conda environment creation and an empty .here file is created in the project root directory. Upon R startup, the here package will move into parent directories and look for a .here file (and others like .Rproj or .git). If the .here file is found, the R root directory is set in the here object, even if the current working dir is changed with setwd(). So as long as a .R or .Rmd file are opened somewhere in the project directory tree (project/workflow/scripts/script.R), the .here file at project/.here will be found. Calling setwd() and/or file.path() can be replaced with here::here() for easy R path management. Keep in mind the here() conflicts with other functions named here(), especially Tidyverse packages, so be sure to call here::here() instead of library(here);here(). For batch or package development uses, using rprojroot::has_file('.here') may be advisable instead of here::here().

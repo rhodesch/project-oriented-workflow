@@ -1,3 +1,7 @@
+---
+sort: 1
+---
+
 # Intro to R in Conda
 
 R and many common R packages were installed in a self-contained conda environment. To avoid package conflicts, only R, R packages and dependencies were installed in the environment. Separate conda environments were created for Python and Snakemake.
