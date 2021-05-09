@@ -1,7 +1,3 @@
----
-sort: 1
----
-
-# Test Documentation
+# GETTING STARTED
 
 {% include list.liquid all=true %}
