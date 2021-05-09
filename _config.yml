@@ -3,4 +3,4 @@ remote_theme: rundocs/jekyll-rtd-theme
 # theme: jekyll-theme-leap-day
 # markdown: kramdown
 
-theme: jekyll-theme-slate
+theme: jekyll-theme-cayman
