@@ -1,3 +1,8 @@
+---
+sort: 3
+---
+
+
 # Create analysis environments
 
 Move into the desired directory, such as the main project folder, and create the new conda environment, This will take a while.
