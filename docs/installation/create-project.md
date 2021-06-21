@@ -27,7 +27,7 @@ Clone the following cookiecutter snakemake template:
 
 ```
 conda activate cookiecutter
-cookiecutter https://github.com/ctrhodes/cookiecutter-snakemake-workflow
+cookiecutter gh:snakemake-workflows/cookiecutter-snakemake-workflow
 conda deactivate
 ```
 
