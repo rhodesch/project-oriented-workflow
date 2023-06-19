@@ -1,4 +1,7 @@
 # Automated setup of project directory and bioinformatic software
+
+## This repo is outdated. Use [dotfiles](https://github.com/daler/dotfiles) instead of this repo. Keeping visible in the off chance external R libs with conda is useful.
+
 Reproducible, self-contained analyses with R, Python and Snakemake via Conda
 
 For full documentation and instructions: [Project Homepage](https://ctrhodes.github.io/project-oriented-workflow)
